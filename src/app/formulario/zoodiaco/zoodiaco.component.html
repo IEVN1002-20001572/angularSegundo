@@ -1,0 +1,38 @@
+<div class="container mx-auto mt-12">
+  <h1 class="text-center text-3xl font-bold text-gray-800 mb-8">Zodiaco Chino</h1>
+  <div class="flex flex-wrap justify-center gap-8">
+    <div class="form-container w-full max-w-md">
+      <form [formGroup]="formulario" class="bg-white border border-gray-200 p-6 rounded-lg shadow-md space-y-4">
+        <div class="form-group">
+          <label for="nombre" class="block text-gray-700 font-medium">Nombre:</label>
+          <input id="nombre" formControlName="nombre" type="text" class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+        </div>
+        <div class="form-group">
+          <label for="apellidop" class="block text-gray-700 font-medium">Apellido Paterno:</label>
+          <input id="apellidop" formControlName="apellidop" type="text" class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+        </div>
+        <div class="form-group">
+          <label for="apellidom" class="block text-gray-700 font-medium">Apellido Materno:</label>
+          <input id="apellidom" formControlName="apellidom" type="text" class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+        </div>
+        <div class="form-group">
+          <label for="fechaNacimiento" class="block text-gray-700 font-medium">Fecha de Nacimiento:</label>
+          <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date" class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+        </div>
+        <div class="form-group">
+          <label for="genero" class="block text-gray-700 font-medium">Género:</label>
+          <select id="genero" formControlName="genero" class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+            <option value="">Selecciona tu género</option>
+            <option value="hombre">Hombre</option>
+            <option value="mujer">Mujer</option>
+          </select>
+        </div>
+        <button (click)="imprimirResultado()" type="button" class="w-full bg-green-500 text-white font-medium py-2 rounded-lg mt-4 hover:bg-green-600 transition duration-200">Imprimir</button>
+      </form>
+    </div>
+    <div *ngIf="resultado" class="result-container text-center">
+      <h3 class="text-xl font-semibold text-gray-800">{{ resultado }}</h3>
+      <img *ngIf="imagenSigno" [src]="imagenSigno" alt="Signo Chino" class="mt-4 mx-auto max-w-xs rounded-lg shadow-md">
+    </div>
+  </div>
+</div>
